@@ -86,11 +86,9 @@ class AuthController extends Controller
     public function soma($num1, $num2)
     {
         if($num2 == 0) {
-            logger()->error('Divisor zero!');
+            logger()->warning('Negativo');
         }
-        else{
-            logger()->info('Div feita');
-        }
+    
         return 10+5;
     }
 }
