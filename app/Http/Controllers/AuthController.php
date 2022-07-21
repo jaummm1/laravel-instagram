@@ -41,7 +41,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect()->route('dashboard');
         }
-        
+        logger()->info('Login Incorreto', $request->all());
         return back()->withError('Usuário ou senha incorretos');
     }
 
@@ -80,5 +80,12 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login');
+    }
+
+
+    public function soma($num1, $num2)
+    {
+        logger()->info('Soma feita');
+        return $num1 + $num2;
     }
 }
