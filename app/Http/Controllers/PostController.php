@@ -176,6 +176,6 @@ class PostController extends Controller
     {
         MakeDiv::dispatch($num1, $num2, auth()->id());
 
-        return 'divisão sendo executada. Aguarde....';
+        return ;
     }
 }
