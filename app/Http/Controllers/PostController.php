@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Jobs\FindMaxPrime;
-use App\Jobs\MakeSum;
 use App\Models\Like;
 use App\Models\Post;
+use App\Jobs\MakeSum;
+use App\Jobs\FindMaxPrime;
+use App\Jobs\ConvertCelsius;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -157,6 +158,12 @@ class PostController extends Controller
     public function soma($num1, $num2)
     {
         MakeSum::dispatch($num1, $num2);
+        return 'A soma esta sendo feita. Aguarde....';
+    }
+
+    public function celsius($farenheit)
+    {
+        ConvertCelsius::dispatch($farenheit);
         return 'A soma esta sendo feita. Aguarde....';
     }
 }
