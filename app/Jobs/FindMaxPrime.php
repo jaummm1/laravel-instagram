@@ -34,28 +34,28 @@ class FindMaxPrime implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
-    {
-        $primo = 1;
-        for ($num = 1; $num < $this->limit; $num++){
-            for ($div = 2; $div < $num; $div++){
-                if ($num % $div === 0){
-                    break;
-                }
-            }
+    // public function handle()
+    // {
+    //     $primo = 1;
+    //     for ($num = 1; $num < $this->limit; $num++){
+    //         for ($div = 2; $div < $num; $div++){
+    //             if ($num % $div === 0){
+    //                 break;
+    //             }
+    //         }
 
-            if ($div === $num){
-                $primo = $num;
-            }
-        }
+    //         if ($div === $num){
+    //             $primo = $num;
+    //         }
+    //     }
 
 
-        $title = 'Sucesso';
-        $description = 'O maior primo é:' . $primo;
+    //     $title = 'Sucesso';
+    //     $description = 'O maior primo é:' . $primo;
 
-        logger()->info('O maior primo é: ' . $primo);
+    //     logger()->info('O maior primo é: ' . $primo);
 
-        $user = User::find($this->userId);
-        $user -> notify(new PrimeFound($title, $description));
-    }
+    //     $user = User::find($this->userId);
+    //     $user -> notify(new PrimeFound($title, $description));
+    // }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Like;
 use App\Models\Post;
+use App\Jobs\MakeDiv;
 use App\Jobs\MakeSum;
 use App\Jobs\FindMaxPrime;
 use App\Jobs\ConvertCelsius;
@@ -155,6 +156,10 @@ class PostController extends Controller
         return 'Primo sendo executado. Aguarde....';
     }
 
+
+
+
+
     public function soma($num1, $num2)
     {
         MakeSum::dispatch($num1, $num2);
@@ -165,5 +170,12 @@ class PostController extends Controller
     {
         ConvertCelsius::dispatch($farenheit);
         return 'A soma esta sendo feita. Aguarde....';
+    }
+
+    public function div($num1, $num2)
+    {
+        MakeDiv::dispatch($num1, $num2, auth()->id());
+
+        return 'divisão sendo executada. Aguarde....';
     }
 }

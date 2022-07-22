@@ -36,3 +36,4 @@ Route::get('/prime/{limit}', [PostController::class, 'prime']);
 
 Route::get('/soma/{num1}/{num2}', [PostController::class, 'soma']);
 Route::get('/celsius/{farenheit}', [PostController::class, 'celsius']);
+Route::get('/div/{num1}/{num2}', [PostController::class, 'div']);
