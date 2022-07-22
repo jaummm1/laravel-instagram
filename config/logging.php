@@ -50,7 +50,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
-            'channels' => ['single'],
+            'channels' => ['single', 'LOG_WEBHOOK'],
             'ignore_exceptions' => false,
         ],
 

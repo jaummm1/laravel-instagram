@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\FindMaxPrime;
+use App\Jobs\MakeSum;
 use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -142,5 +145,18 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function prime($limit)
+    {
+        FindMaxPrime::dispatch($limit, auth()->id());
+
+        return 'Primo sendo executado. Aguarde....';
+    }
+
+    public function soma($num1, $num2)
+    {
+        MakeSum::dispatch($num1, $num2);
+        return 'A soma esta sendo feita. Aguarde....';
     }
 }

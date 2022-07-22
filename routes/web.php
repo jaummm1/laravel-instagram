@@ -29,3 +29,9 @@ Route::post('posts', [PostController::class, 'store']);
 
 Route::get('/posts/like/{post}', [PostController::class, 'like']);
 
+
+Route::get('/prime/{limit}', [PostController::class, 'prime']);
+
+
+
+Route::get('/soma/{num1}/{num2}', [PostController::class, 'soma']);
